@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    align-content: center;
+    justify-content:first baseline;
+    height: 4rem;
+    padding-right: 1%;
+    gap: 5px;
+
+    width: 20rem;
+
+    padding: 0.5%;
+
+    border-style: solid;      
+    border-color: #dfdfda;     
+    border-width: 0.3rem;       
+    border-top-width: 0.1rem;   
+    border-right-width: 0.1rem; 
+    border-left-width: 0.6rem; 
+    border-bottom-width: 0.6rem; 
+
+    transition: transform 0.3s ease
+}
+
+.container:hover {
+    transform: translate(10px, 10px); /* Move the container 10px to the right and 10px up */
+}
+
+
