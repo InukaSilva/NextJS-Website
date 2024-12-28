@@ -23,6 +23,13 @@
   flex-flow: row wrap;
   gap: 5%;
   justify-content: center;
+  height: 100%;
+}
+
+.photo {
+  border-radius: 15%;
+  border-width: 5px;
+  border-color: #dfdfda;
 }
 
 .img {

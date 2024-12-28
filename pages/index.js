@@ -124,10 +124,6 @@ export default function Home() {
             PID Visualizer ↗
           </a>
 
-          <a className={styles.text} href="blog">
-            Blog ↗
-          </a>
-
           <a
             className={styles.text}
             href="https://github.com/InukaSilva?tab=repositories"
