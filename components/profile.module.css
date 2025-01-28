@@ -1,13 +1,16 @@
 .container {
     display: flex;
+
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 
+    flex-direction: column;
     margin-bottom: 1rem;
+    max-height: 14rem;
 
     max-width: 13rem;
     min-width: 13rem;
+
     border-style: solid;      
     border-color: #dfdfda;     
     border-width: 0.3rem;       
@@ -17,7 +20,7 @@
     border-bottom-width: 0.6rem; 
     color: rgb(26, 30, 42);
 
-    transition: transform 0.3s ease
+    transition: transform 0.3s ease;
 }
 
 .container:hover {

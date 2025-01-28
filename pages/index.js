@@ -5,37 +5,9 @@ import Socials from "../components/socials";
 import Profile from "../components/profile";
 import Bio from "../components/bio";
 import Tab from "../components/tab";
-import { useEffect, useState } from "react";
+
 
 export default function Home() {
-  {
-    /* This Section is used to get the text from the status.txt file so it can change the text on screen */
-  }
-
-  const [lines, setLines] = useState([]);
-  const [currentLine, setCurrentLine] = useState(0);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("/api/getText");
-      const data = await res.json();
-      if (data.content) {
-        setLines(data.content);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    if (lines.length > 0) {
-      const interval = setInterval(() => {
-        setCurrentLine((prevLine) => (prevLine + 1) % lines.length);
-      }, 5000);
-      return () => clearInterval(interval);
-    }
-  }, [lines]);
-
   return (
     <div className={styles.page}>
       {/* Used to change teh */}
@@ -88,13 +60,6 @@ export default function Home() {
               alt="Picture of the author"
             />
           </a>
-
-          <a className={styles.text} href="/Inuka_s_Resume.pdf">
-            Resume ↗
-          </a>
-
-          <h3 className={styles.header}>Currently:</h3>
-          <a className={styles.status}>{lines[currentLine]}</a>
         </Profile>
 
         <Bio>
@@ -109,8 +74,19 @@ export default function Home() {
         </Bio>
 
         <Tab>
+          <a
+            className={styles.text}
+            href="https://github.com/InukaSilva?tab=repositories"
+          >
+            Projects ↗
+          </a>
+
           <a className={styles.text} href="gallery">
             Gallery ↗
+          </a>
+
+          <a className={styles.text} href="/Inuka_s_Resume.pdf">
+            Resume ↗
           </a>
 
           <a className={styles.text} href="https://inuka-silva.itch.io/">
@@ -122,13 +98,6 @@ export default function Home() {
             href="https://inukasilva-pid-visualizer-main-ko2ed1.streamlit.app/"
           >
             PID Visualizer ↗
-          </a>
-
-          <a
-            className={styles.text}
-            href="https://github.com/InukaSilva?tab=repositories"
-          >
-            Projects ↗
           </a>
         </Tab>
       </div>
