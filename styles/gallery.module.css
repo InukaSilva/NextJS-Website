@@ -27,6 +27,8 @@
 }
 
 .photo {
+  width: 30%;
+  height: auto;
   border-radius: 15%;
   border-width: 5px;
   border-color: #dfdfda;
