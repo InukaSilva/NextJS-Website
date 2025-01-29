@@ -26,13 +26,25 @@
   height: 100%;
 }
 
-.photo {
-  width: 30%;
-  height: auto;
-  border-radius: 15%;
-  border-width: 5px;
-  border-color: #dfdfda;
+.columnsWrapper {
+  display: flex;
+  justify-content: space-between; /* Distribute columns with space between them */
+  gap: 20px; /* Add space between the columns */
 }
+
+.coloumn1, .coloumn2, .coloumn3 {
+  width: 20rem; /* Set column width to 5rem */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between images within a column */
+}
+
+.photo {
+  width: 100%; /* Make each image fill the column's width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image is cropped and fits without distortion */
+}
+
 
 .img {
   margin-top: 5%;

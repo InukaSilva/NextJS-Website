@@ -74,23 +74,32 @@ export default function Home() {
       </div>
 
       <div className={styles.maincontent}>
-        {loading ? (
-          <p>Loading images...</p>
-        ) : images.length === 0 ? (
-          <p>Currently there are no photos, check back in later :3!</p>
-        ) : (
-          <div className={styles.gallery}>
-            {images.map((image, index) => (
-              <div key={index}>
-                <img
-                  className="photo"
-                  src={`/Photos/${image}`}
-                  alt={`Image ${index + 1}`}
-                />
-              </div>
-            ))}
-          </div>
-        )}
+        <div className={styles.columnsWrapper}>
+          {[...Array(3)].map((_, columnIndex) => (
+            <div
+              className={styles[`coloumn${columnIndex + 1}`]}
+              key={columnIndex}
+            >
+              {loading ? (
+                <p>Loading images...</p>
+              ) : images.length === 0 ? (
+                <p>Currently there are no photos, check back in later :3!</p>
+              ) : (
+                images
+                  .filter((_, index) => index % 3 === columnIndex) // Filter images based on column
+                  .map((image, index) => (
+                    <div key={index}>
+                      <img
+                        className="photo"
+                        src={`/Photos/${image}`}
+                        alt={`Image ${index + 1}`}
+                      />
+                    </div>
+                  ))
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
