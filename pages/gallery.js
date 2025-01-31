@@ -33,111 +33,111 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-  <Head>
-    <title>Inuka's Portfolio Home Page</title>
-    <link rel="icon" href="/favicon.ico" />
-  </Head>
+      <Head>
+        <link rel="icon" href="/icon.png" type="image/png" sizes="32x32" />
+        <title>Gallery</title>
+      </Head>
 
-  <div className={styles.top}>
-    {/* This section is for content on the left side of the screen - the social icons */}
-    <Socials>
-      <a className={styles.home} href="/">
-        <Image
-          src="/Home.png"
-          width={40}
-          height={40}
-          alt="Home Icon"
-        />
-      </a>
+      <div className={styles.top}>
+        <Socials>
+          <a className={styles.home} href="/">
+            <Image src="/Home.png" width={40} height={40} alt="Home Icon" />
+          </a>
 
-      <a className={styles.icon} href="https://github.com/InukaSilva">
-        <Image
-          src="/Github.jpg"
-          width={40}
-          height={40}
-          alt="GitHub Icon"
-        />
-      </a>
+          <a className={styles.icon} href="https://github.com/InukaSilva">
+            <Image src="/Github.jpg" width={40} height={40} alt="GitHub Icon" />
+          </a>
 
-      <a
-        className={styles.icon}
-        href="https://ca.linkedin.com/in/inuka-silva-a367a8244"
-      >
-        <Image
-          src="/Linkedin.png"
-          width={40}
-          height={40}
-          alt="LinkedIn Icon"
-        />
-      </a>
-    </Socials>
-  </div>
+          <a
+            className={styles.icon}
+            href="https://ca.linkedin.com/in/inuka-silva-a367a8244"
+          >
+            <Image
+              src="/Linkedin.png"
+              width={40}
+              height={40}
+              alt="LinkedIn Icon"
+            />
+          </a>
+        </Socials>
+      </div>
 
-  <div className={styles.maincontent}>
-    <div className={styles.column1}>
-      {loading ? (
-        <p>Loading images...</p>
-      ) : images.length === 0 ? (
-        <p>Currently there are no photos, check back in later :3!</p>
-      ) : (
-        images
-          .filter((_, index) => index % 3 === 0) // Filter images for column 1
-          .map((image, index) => (
-            <div key={index}>
-              <img
-                className="photo"
-                src={`/Photos/${image}`}
-                alt={`Image ${index + 1}`}
-                loading="lazy"
-              />
-            </div>
-          ))
-      )}
+      <div className={styles.maincontent}>
+        {/* Column 1 */}
+        <div className={styles.column1}>
+          {loading ? (
+            <p>Loading images...</p>
+          ) : images.length === 0 ? (
+            <p>Currently there are no photos, check back in later :3!</p>
+          ) : (
+            images
+              .filter((image) => {
+                const imageNumber = parseInt(image.split(".")[0], 10); // Extract the number from filename like '1.jpg'
+                return imageNumber % 3 === 1; // Place images where number % 3 === 1
+              })
+              .map((image, index) => (
+                <div key={index}>
+                  <img
+                    className="photo"
+                    src={`/Photos/${image}`}
+                    alt={`Image ${index + 1}`}
+                    loading="lazy"
+                  />
+                </div>
+              ))
+          )}
+        </div>
+
+        {/* Column 2 */}
+        <div className={styles.column2}>
+          {loading ? (
+            <p>Loading images...</p>
+          ) : images.length === 0 ? (
+            <p>Currently there are no photos, check back in later :3!</p>
+          ) : (
+            images
+              .filter((image) => {
+                const imageNumber = parseInt(image.split(".")[0], 10);
+                return imageNumber % 3 === 2; // Place images where number % 3 === 2
+              })
+              .map((image, index) => (
+                <div key={index}>
+                  <img
+                    className="photo"
+                    src={`/Photos/${image}`}
+                    alt={`Image ${index + 1}`}
+                    loading="lazy"
+                  />
+                </div>
+              ))
+          )}
+        </div>
+
+        {/* Column 3 */}
+        <div className={styles.column3}>
+          {loading ? (
+            <p>Loading images...</p>
+          ) : images.length === 0 ? (
+            <p>Currently there are no photos, check back in later :3!</p>
+          ) : (
+            images
+              .filter((image) => {
+                const imageNumber = parseInt(image.split(".")[0], 10);
+                return imageNumber % 3 === 0; // Place images where number % 3 === 0
+              })
+              .map((image, index) => (
+                <div key={index}>
+                  <img
+                    className="photo"
+                    src={`/Photos/${image}`}
+                    alt={`Image ${index + 1}`}
+                    loading="lazy"
+                  />
+                </div>
+              ))
+          )}
+        </div>
+      </div>
     </div>
-
-    <div className={styles.column2}>
-      {loading ? (
-        <p>Loading images...</p>
-      ) : images.length === 0 ? (
-        <p>Currently there are no photos, check back in later :3!</p>
-      ) : (
-        images
-          .filter((_, index) => index % 3 === 1) // Filter images for column 2
-          .map((image, index) => (
-            <div key={index}>
-              <img
-                className="photo"
-                src={`/Photos/${image}`}
-                alt={`Image ${index + 1}`}
-                loading="lazy"
-              />
-            </div>
-          ))
-      )}
-    </div>
-
-    <div className={styles.column3}>
-      {loading ? (
-        <p>Loading images...</p>
-      ) : images.length === 0 ? (
-        <p>Currently there are no photos, check back in later :3!</p>
-      ) : (
-        images
-          .filter((_, index) => index % 3 === 2) // Filter images for column 3
-          .map((image, index) => (
-            <div key={index}>
-              <img
-                className="photo"
-                src={`/Photos/${image}`}
-                alt={`Image ${index + 1}`}
-                loading="lazy"
-              />
-            </div>
-          ))
-      )}
-    </div>
-  </div>
-</div>
-
   );
 }

@@ -6,17 +6,15 @@ import Profile from "../components/profile";
 import Bio from "../components/bio";
 import Tab from "../components/tab";
 
-
 export default function Home() {
   return (
     <div className={styles.page}>
-      {/* Used to change teh */}
       <Head>
+        <link rel="icon" href="/icon.png" type="image/png" sizes="32x32" />
         <title>Inuka's Portfolio Home Page</title>
       </Head>
 
       <div className={styles.top}>
-        {/* this section is for content on the left side of the screen - the social icons*/}
         <Socials>
           <a className={styles.home} href="/">
             <Image

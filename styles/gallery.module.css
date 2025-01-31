@@ -1,4 +1,3 @@
-/* Style for the overall page */
 .page {
   display: flex;
   flex-direction: column;
@@ -8,7 +7,6 @@
   height: 100%;
 }
 
-/* Top section where the social icons are displayed */
 .top {
   display: flex;
   align-items: center;
@@ -17,36 +15,32 @@
   height: 100%;
 }
 
-/* Main content container */
 .maincontent {
   display: flex;
-  justify-content: space-between; /* Distribute columns evenly */
-  flex-wrap: wrap; /* Allow columns to wrap to the next line if needed */
+  justify-content: space-between; 
+  flex-wrap: wrap;
   margin: 2rem;
 }
 
-/* Styling for the individual columns */
 .column1, .column2, .column3 {
-  width: 32.5%; /* Each column takes 33.33% of the container's width (3 columns by default) */
+  width: 32.5%; 
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Space between items in the column */
-  margin-bottom: 15px; /* Space between rows if the columns wrap */
+  gap: 15px;
+  margin-bottom: 15px;
 }
 
-/* Media Query for medium screens (2 columns layout) */
 @media (max-width: 1024px) {
   .column1, .column2, .column3 {
-    width: 48%; /* Two columns, with some margin */
-    margin-bottom: 15px; /* Adds space between stacked columns */
+    width: 48%;
+    margin-bottom: 15px;
   }
 }
 
-/* Media Query for small screens (1 column layout) */
 @media (max-width: 768px) {
   .column1, .column2, .column3 {
-    width: 100%; /* Stacks columns vertically on smaller screens */
-    margin-bottom: 15px; /* Adds space between stacked columns */
+    width: 100%;
+    margin-bottom: 15px;
   }
 }
 
